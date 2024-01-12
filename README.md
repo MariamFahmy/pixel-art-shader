@@ -1,4 +1,4 @@
-**Automatic Pixel Art Shader**
+# **Automatic Pixel Art Shader**
 
 Prototype for a program that automatically shades pixel art
 
