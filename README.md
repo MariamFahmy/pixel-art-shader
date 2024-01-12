@@ -1,4 +1,5 @@
-# pixel-art-shader
+#Automatic Pixel Art Shader
+
 Prototype for a program that automatically shades pixel art
 
 Written in Python and uses OpenCV.
