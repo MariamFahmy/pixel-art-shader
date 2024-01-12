@@ -1,9 +1,8 @@
 """
-Implements sprite shading as outlined in
-https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
-but in pixel art style
+Automatically shades pixel art
+Algorithm adapted from the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
 
-Code author: Mariam Ahmed
+Code author: Mariam Fahmy F. A. Ahmed
 """
 import numpy
 import cv2
