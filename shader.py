@@ -11,8 +11,7 @@ import cv2
 original = cv2.imread(filename)
 final = cv2.imread(filename) # make a copy of the original to perform the shading on
 
-"""Stores visual representation of progress so far so we can see what
-the code is doing"""
+# the following copies of the input image will be used to store visual representation of progress so far so we can see what the code is doing
 ysection = cv2.imread(filename)
 xsection = cv2.imread(filename)
 intersection = cv2.imread(filename) # showing both segments in same image
