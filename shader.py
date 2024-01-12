@@ -1,5 +1,5 @@
 """
-Automatically shades pixel art
+Protype program that automatically shades pixel art
 Algorithm adapted from the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
 
 Code author: Mariam Fahmy F. A. Ahmed
@@ -11,15 +11,14 @@ import cv2
 original = cv2.imread(filename)
 final = cv2.imread(filename) # make a copy of the original to perform the shading on
 
-# stores visual representation of progress so far so we can see what
-# the code is doing
+""" stores visual representation of progress so far so we can see what
+the code is doing"""
 ysection = cv2.imread(filename)
 xsection = cv2.imread(filename)
 intersection = cv2.imread(filename) # showing both segments in same image
 
-# pixel is not black (outline) or white (background)
-# black pixels are assumed to be outline pixels
-# white pixels are assumed to be background pixels
+"""black pixels are assumed to be outline pixels
+ white pixels are assumed to be background pixels"""
 def isWithinOutline(pixel):
     # if at least one of the B, G, R values is not 0, pixel is not black
     not_black = pixel[0] != 0 or pixel[1] != 0 or pixel[2] or 0
@@ -33,42 +32,30 @@ def changeColor(pixel, B, G, R):
     pixel[1] = G
     pixel[2] = R
 
-# Steps as outlined in the paper:
-# 2. Highlight Spots Approximation
-# The following comments are taken from the paper:
-# Search for possible highlight spots
-#   These spots are the regions of the image
-# with the maximum exposure to the light source.
-# The segment ends when an invalid pixel is found or the bound of the sprite image has been reached.
-
-#   We define
-# the parameter lp as the local position of the light inside the range
-# [0.0, 1.0], by taking the [0.0, 0.0] position as the top-left corner of
-# the coordinate system
-#   Suppose that the end of a certain segment
-# was found and p0 and p1 are the start and ending pixels positions,
-
+"""As described in the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
+-----Perform Highlight Spots Approximation------
+The following comments are taken from the paper:
+Search for possible highlight spots
+These spots are the regions of the image
+with the maximum exposure to the light source.
+The segment ends when an invalid pixel is found or the bound of the sprite image has been reached."""
 
 # light_position is the position of the light source as [row, col] pair
 # row and col are in range [0.0, 1.0]
 # [0.0, 0.0] means light source is at top-left corner of coordinate system
-light_position = [0.25, 0.7]
+light_position = [0.25, 0.7] # light source is at position 25% of height of image and 70% width of image
 
 height = original.shape[0] # height of image
 width = original.shape[1] # width of image
 
-# store visual representation of progress so far so we can see what
-# the code is doing
-ysection = cv2.imread(filename)
-xsection = cv2.imread(filename)
-
 """
-Classify pixels into 3 classes (weights)
+As described in the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
+------Classify pixels into 3 classes (weights)------
 Weight 0: pixels that belong to neither x nor y segments
 Weight 1: pixels that belong to only one segment
 Weight 2: pixels that are highlight spots (at intersection of x and y segments)
 """
-# store the shading weight (0, 1, 2) of each pixel
+# used to store the shading weight (0, 1 or 2) of each pixel
 weight = numpy.zeros(shape=(height, width, 1), dtype=numpy.float32)
 
 # for each row of the image, holds [start column, end column] of pixels that are inside sprite
@@ -197,10 +184,11 @@ for r in range(len(sprite)):
 
 unpixelated = cv2.cvtColor(hsi_art, cv2.COLOR_HSV2BGR)
 
-"""Pixelate the art to get jagged edges
-Function credit: https://stackoverflow.com/questions/55508615/how-to-pixelate-image-using-opencv-in-python, HansHirse
 """
-"""Start of code borrowed from StackOverFlow:"""
+--------Pixelate the art to get jagged edges so the final result looks like pixel art---------
+Code credit: https://stackoverflow.com/questions/55508615/how-to-pixelate-image-using-opencv-in-python, HansHirse
+"""
+"""Start of StackOverFlow code:"""
 # Get input size
 height, width = unpixelated.shape[:2]
 # Desired "pixelated" size
@@ -209,7 +197,8 @@ w, h = (16, 16)
 temp = cv2.resize(unpixelated, (w, h), interpolation=cv2.INTER_LINEAR)
 # Initialize output image
 final = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
-"""end of borrowed code"""
+"""End of StackOverFlow code"""
 
 # save result as new image
+
 cv2.imwrite(filename[:filename.index('.')] + "_shaded.png", final)
