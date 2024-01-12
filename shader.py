@@ -11,7 +11,7 @@ import cv2
 original = cv2.imread(filename)
 final = cv2.imread(filename) # make a copy of the original to perform the shading on
 
-""" stores visual representation of progress so far so we can see what
+"""Stores visual representation of progress so far so we can see what
 the code is doing"""
 ysection = cv2.imread(filename)
 xsection = cv2.imread(filename)
@@ -32,13 +32,11 @@ def changeColor(pixel, B, G, R):
     pixel[1] = G
     pixel[2] = R
 
-"""As described in the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
------Perform Highlight Spots Approximation------
-The following comments are taken from the paper:
-Search for possible highlight spots
-These spots are the regions of the image
-with the maximum exposure to the light source.
-The segment ends when an invalid pixel is found or the bound of the sprite image has been reached."""
+"""
+-----Perform Highlight Spot Approximation------
+As described in the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
+the highlight spot is the spot with the highest exposure to the light source 
+"""
 
 # light_position is the position of the light source as [row, col] pair
 # row and col are in range [0.0, 1.0]
@@ -49,8 +47,8 @@ height = original.shape[0] # height of image
 width = original.shape[1] # width of image
 
 """
-As described in the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
 ------Classify pixels into 3 classes (weights)------
+As described in the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
 Weight 0: pixels that belong to neither x nor y segments
 Weight 1: pixels that belong to only one segment
 Weight 2: pixels that are highlight spots (at intersection of x and y segments)
@@ -137,9 +135,9 @@ for col in range(width):
         else:  # [center, col] belongs to this segment only
             weight[center, col] = 1
 
-# 3. Shading Distribution
+"""-----Get Shading Distribution-----"""
 """
-Calculate the average shading distribution by blurring the weights matrix
+Calculate the average shading distribution by blurring the weights matrix, step is adapted from "Automatic Sprite Shading"
 """
 shading_distribution = numpy.zeros(shape=(height, width, 1), dtype=float)
 shading_distribution = cv2.boxFilter(src=weight, dst=shading_distribution, ddepth=-1, ksize=(121, 121), normalize=True, borderType=cv2.BORDER_ISOLATED)
@@ -156,7 +154,7 @@ for row in range(height):
     for col in range(width):
         shading_distribution[row, col] = shading_distribution[row, col] / (max_shade + 0.00000001)
 
-# 3. Final Composition
+"""---------Assign shades to pixels-------"""
 # convert sprite to HSI model to facilitate shading
 hsi_art = cv2.cvtColor(original, cv2.COLOR_BGR2HSV)
 # loop over every pixel inside sprite
@@ -182,10 +180,10 @@ for r in range(len(sprite)):
             hsi_art[row, col][1] = 0
             hsi_art[row, col][2] = 255
 
-unpixelated = cv2.cvtColor(hsi_art, cv2.COLOR_HSV2BGR)
+unpixelated = cv2.cvtColor(hsi_art, cv2.COLOR_HSV2BGR) # shaded art so far in RGB but not in pixel-art style
 
 """
---------Pixelate the art to get jagged edges so the final result looks like pixel art---------
+--------Pixelate the art so the final result has pixel-art style---------
 Code credit: https://stackoverflow.com/questions/55508615/how-to-pixelate-image-using-opencv-in-python, HansHirse
 """
 """Start of StackOverFlow code:"""
@@ -199,6 +197,17 @@ temp = cv2.resize(unpixelated, (w, h), interpolation=cv2.INTER_LINEAR)
 final = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
 """End of StackOverFlow code"""
 
-# save result as new image
-
+"""Save result as new image"""
 cv2.imwrite(filename[:filename.index('.')] + "_shaded.png", final)
+
+"""Display results"""
+# display original and visual representation of progress by the code
+# --->>>> to see how the code works, uncomment the commented imshow calls
+cv2.imshow('Original art', original)
+#cv2.imshow('y-direction segmentation', ysection)
+#cv2.imshow('x-direction segmentation', xsection)
+#cv2.imshow('intersection', intersection)
+#cv2.imshow('Shading distribution', shading_distribution)
+#cv2.imshow('Unpixelated', unpixelated)
+cv2.imshow('Final', final)
+cv2.waitKey()
