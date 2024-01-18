@@ -1,6 +1,6 @@
 # **Automatic Pixel Art Shader**
 
-Prototype for a program that automatically shades pixel art
+This is a program that automatically shades and highlights pixel art as shown below.
 
 The algorithm used is adapted from the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
 
