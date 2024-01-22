@@ -8,7 +8,9 @@ Then, using this shading distribution I devised and implemented a simple way to 
 
 Written in Python using numpy and cv2.
 
-To run the code, you need numpy and cv2. 
+Currently, there is no graphical user interface :(
+
+The program can be run from a Python environment with numpy and cv2 installed. 
 
 To test it, the images provided in the repo can be used. 
 
