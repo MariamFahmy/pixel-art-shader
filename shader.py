@@ -7,6 +7,8 @@ Code author: Mariam Fahmy F. A. Ahmed
 import numpy
 import cv2
 
+filename = input("Enter name of file: ")
+
 # open image in color
 original = cv2.imread(filename)
 final = cv2.imread(filename) # make a copy of the original to perform the shading on
