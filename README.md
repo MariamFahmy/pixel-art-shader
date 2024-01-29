@@ -10,8 +10,7 @@ Then, using this shading distribution, I devised and implemented a simple way to
 Written in Python using numpy and cv2.
 
 Currently, there is no graphical user interface :( Hopefully will make one soon; right now focusing on university and finding a co-op for summer 2024!
-
-The program can be run from a Python IDE with numpy and cv2 installed. 
+In the meantime, the repository can be cloned and the program run from a Python IDE.
 
 To test it, the images provided in the repo can be used. 
 
