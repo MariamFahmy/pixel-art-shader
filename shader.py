@@ -1,5 +1,5 @@
 """
-Protype program that automatically shades pixel art
+Prototype program that automatically shades pixel art
 Algorithm adapted from the paper "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf
 
 Code author: Mariam Fahmy F. A. Ahmed
