@@ -7,7 +7,7 @@ Code author: Mariam Fahmy F. A. Ahmed
 import numpy
 import cv2
 
-filename = input("Input image, e.g. 'drop.png': ")
+filename = input("Input image, e.g. drop.png: ")
 
 # open image in color
 original = cv2.imread(filename)
