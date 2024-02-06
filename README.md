@@ -7,11 +7,8 @@ The program finds a shading distribution depending on the position of the light 
 
 Then, using this shading distribution, I devised and implemented a simple way to map the shading distribution value of the pixel to an actual shade or highlight using the Hue, Saturation, Intensity color model and then pixelated the sprite to give it a pixel-art appearance.
 
-Written in Python using numpy and cv2.
+Written in Python using numpy and opencv-python.
 
-Currently, there is no graphical user interface :( Hopefully will make one soon; right now focusing on university and finding a co-op for summer 2024!
-In the meantime, the repository can be cloned and the program run from a Python IDE.
-
-To test it, the images provided in the repo can be used. 
+To test it, the images provided in the repo can be used, or you can use your own illustrations!
 
 
