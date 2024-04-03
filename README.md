@@ -13,6 +13,6 @@ Written in Python using numpy and cv2.
 
 To test it, clone the repo in your Python IDE with numpy and opencv-python packages installed. The images provided in the repo can be used, or you can use your own illustrations! 
 
-This is an open-source project. I encourage you to fork it and contribute. Check the issues list. 
+This is an open-source project. I encourage you to fork it and contribute. 
 
 
