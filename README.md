@@ -4,6 +4,8 @@
 
 This is a prototype program that automatically shades and highlights pixel art as shown in the image below. The unshaded illustrations are the inputs, and the shaded and highlighted ones are the outputs!
 ![program results](https://github.com/MariamFahmy/pixel-art-shader/blob/main/program_results.png "program results")
+![image](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/91994ea7-90f6-4226-8a97-7459824ada02)
+
 
 The program finds a shading distribution depending on the position of the light source. This part of the algorithm is taken from the paper  "Automatic Sprite Shading" at https://www.sbgames.org/papers/sbgames09/computing/full/cp10_09.pdf, and its implementation is my own.
 
