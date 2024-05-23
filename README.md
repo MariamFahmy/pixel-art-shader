@@ -8,6 +8,8 @@ This is a prototype program that automatically shades and highlights pixel art a
 ![image](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/3b41f884-633e-411c-b6e8-8054c8c742a5)
 ![Screenshot 2024-05-16 185626](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/ca0f2a3b-c694-467b-aca2-113312b30316)
 ![Screenshot 2024-05-16 185123](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/28bba085-0b7c-450f-8081-b9e875864502)
+![image](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/2e92c7f9-b6c6-411f-b1c2-a6d2b397c13e)
+
 
 
 
