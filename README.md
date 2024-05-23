@@ -2,8 +2,7 @@
 
 **Demo video:** https://www.youtube.com/watch?v=33y9JV2fO6A
 
-This is a prototype program that automatically shades and highlights pixel art as shown in the image below. The unshaded illustrations are the inputs, and the shaded and highlighted ones are the outputs!
-![program results](https://github.com/MariamFahmy/pixel-art-shader/blob/main/program_results.png "program results")
+This is a prototype program that automatically shades and highlights pixel art as shown in the images below.
 ![image](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/91994ea7-90f6-4226-8a97-7459824ada02)
 ![image](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/3b41f884-633e-411c-b6e8-8054c8c742a5)
 ![Screenshot 2024-05-16 185626](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/ca0f2a3b-c694-467b-aca2-113312b30316)
