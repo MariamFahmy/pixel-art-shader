@@ -1,6 +1,6 @@
 # **Automatic Pixel Art Shader**
 
-**Demo video:** https://www.youtube.com/watch?v=33y9JV2fO6A
+# Demo video: https://www.youtube.com/watch?v=33y9JV2fO6A
 
 This is a prototype program that automatically shades and highlights pixel art as shown in the images below.
 ![image](https://github.com/MariamFahmy/pixel-art-shader/assets/51763380/91994ea7-90f6-4226-8a97-7459824ada02)
