@@ -1,4 +1,4 @@
-# Demo video: https://www.youtube.com/watch?v=33y9JV2fO6A
+# Demo video: https://www.youtube.com/watch?v=33y9JV2fO6A&list=PLPK_4N_fmojLwylkSFc_sVg_OxE9J8pT0&index=2
 
 # **Automatic Pixel-Art Shader**
 
